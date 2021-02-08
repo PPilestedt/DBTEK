@@ -61,6 +61,7 @@ LIMIT 5;
 
 -- Vilken månad hade du den största försäljningen? (det måste finnas data som anger försäljning 
 -- för mer än en månad i databasen för att visa att frågan är korrekt formulerad)
+
 SELECT MONTH(beställning.created) as månad, sum(sko.pris) as summa
 FROM beställning
 INNER JOIN shoppinglista
