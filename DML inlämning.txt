@@ -21,6 +21,7 @@ GROUP BY kund.id;
 
 
 -- Vilka kunder har köpt svarta sandaler i storlek 38 av märket Ecco? Lista deras namn.
+
 SELECT kund.förnamn, kund.efternamn
 FROM kund
 INNER JOIN beställning
@@ -31,7 +32,8 @@ INNER JOIN sko
 ON shoppinglista.skoid = sko.id
 WHERE sko.id = 2;
 
--- Skriv ut en lista på det totala beställningsvärdet per ort där beställningsvärdet är större än 1000 kr. Ortnamn och värde ska visas. (det måste finnas orter i databasen där det har
+-- Skriv ut en lista på det totala beställningsvärdet per ort där beställningsvärdet är större än 1000 kr. 
+-- Ortnamn och värde ska visas. (det måste finnas orter i databasen där det har
 -- handlats för mindre än 1000 kr för att visa att frågan är korrekt formulerad)
 
 SELECT kund.ort, sum(sko.pris) as summa
@@ -46,6 +48,7 @@ GROUP BY kund.ort
 HAVING summa > 1000;
 
 -- Skapa en topp-5 lista av de mest sålda produkterna.
+
 SELECT sko.id as sko, märke.namn as märke, sko.färg, count(sko.id) as antal
 FROM sko
 INNER JOIN shoppinglista
@@ -56,7 +59,8 @@ GROUP BY sko.id
 ORDER BY antal desc
 LIMIT 5;
 
--- Vilken månad hade du den största försäljningen? (det måste finnas data som anger försäljning för mer än en månad i databasen för att visa att frågan är korrekt formulerad)
+-- Vilken månad hade du den största försäljningen? (det måste finnas data som anger försäljning 
+-- för mer än en månad i databasen för att visa att frågan är korrekt formulerad)
 SELECT MONTH(beställning.created) as månad, sum(sko.pris) as summa
 FROM beställning
 INNER JOIN shoppinglista
