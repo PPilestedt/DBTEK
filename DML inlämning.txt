@@ -20,7 +20,7 @@ ON shoppinglista.skoid = sko.id
 GROUP BY kund.id;
 
 
--- Vilka kunder har köpt svarta sandaler i storlek 38 av märket Ecco? Lista deras namn.
+-- Vilka kunder har köpt blåa sportskor med storlek 38 av märket Nike? Lista deras namn.
 
 SELECT kund.förnamn, kund.efternamn
 FROM kund
